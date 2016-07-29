@@ -151,19 +151,7 @@ export class Document implements Document {
 
     static collection = "documents";
 
-    static documentURL = (documentSlug: string) => `${API_SERVER_BASE_URL}/docs/${documentSlug}`;
-
-    static subdocumentURL = (documentSlug: string, subdocumentId: string) => {
-
-        return `${API_SERVER_BASE_URL}/docs/${documentSlug}/subdocs/${subdocumentId}`;
-    };
-
-    static recordURL = (documentSlug: string, subdocumentId: string, recordId: string) => {
-
-        return `${API_SERVER_BASE_URL}/docs/${documentSlug}/subdocs/${subdocumentId}/records/${recordId}`;
-    };
-
-    static URL = (slug: string, subdocId: string, recordId: string) => {
+    static URL = (slug: string, subdocId?: string, recordId?: string) => {
 
         let url = `${API_SERVER_BASE_URL}/docs/${slug}`;
 

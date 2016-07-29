@@ -2,7 +2,8 @@
   "name": "vml-common",
   "version": "1.0.0",
   "description": "Shared modules",
-  "main": "index.js",
+  "main": "index.ts",
+  "typings": "index.ts",
   "private": true,
   "repository": {
     "type": "git",
