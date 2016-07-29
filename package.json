@@ -1,0 +1,17 @@
+{
+  "name": "vml-common",
+  "version": "1.0.0",
+  "description": "Shared modules",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vandemataramlib/vml-common.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vandemataramlib/vml-common/issues"
+  },
+  "homepage": "https://github.com/vandemataramlib/vml-common#readme"
+}
