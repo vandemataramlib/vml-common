@@ -2,8 +2,8 @@
   "name": "vml-common",
   "version": "1.0.0",
   "description": "Shared modules",
-  "main": "index.ts",
-  "typings": "index.ts",
+  "main": "lib/index",
+  "typings": "lib/index",
   "private": true,
   "repository": {
     "type": "git",
@@ -14,5 +14,14 @@
   "bugs": {
     "url": "https://github.com/vandemataramlib/vml-common/issues"
   },
-  "homepage": "https://github.com/vandemataramlib/vml-common#readme"
+  "homepage": "https://github.com/vandemataramlib/vml-common#readme",
+  "devDependencies": {
+    "pre-commit": "^1.1.3"
+  },
+  "scripts": {
+    "compile": "tsc"
+  },
+  "pre-commit": [
+    "compile"
+  ]
 }

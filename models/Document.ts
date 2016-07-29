@@ -96,11 +96,11 @@ export interface Token {
     token: string;
 }
 
-enum DocumentDataTypes {
-    chapter,
-    chapters,
-    books
-}
+// enum DocumentDataTypes {
+//     chapter,
+//     chapters,
+//     books
+// }
 
 export interface IVolume { }
 
