@@ -54,5 +54,5 @@ export declare class Suffix implements ISuffix {
     _id: string;
     suffix: string;
     static collection: string;
-    static URL: (id: string) => string;
+    static URL: (id?: string) => string;
 }

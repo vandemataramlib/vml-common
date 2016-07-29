@@ -67,5 +67,5 @@ export class Suffix implements ISuffix {
     _id: string;
     suffix: string;
     static collection = "suffixes";
-    static URL = (id: string) => API_SERVER_BASE_URL + "/suffixes/" + id;
+    static URL = (id?: string) => API_SERVER_BASE_URL + "/suffixes" + (id ? `/${id}` : "");
 }

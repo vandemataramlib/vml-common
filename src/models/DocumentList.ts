@@ -11,7 +11,7 @@ export interface IDocumentListGroup {
 
 export class DocumentListGroup implements IDocumentListGroup {
     static collection = "documentLists";
-    static URL = (id: string) => API_SERVER_BASE_URL + "/docList/" + id;
+    static URL = (id?: string) => API_SERVER_BASE_URL + "/docList" + (id ? `/${id}` : "");
     _id: string;
     title: string;
     items: DocumentListItem[];

@@ -1,5 +1,5 @@
 export declare class Prefix {
-    static URL: (id: string) => string;
+    static URL: (id?: string) => string;
     static collection: string;
     _id: string;
     prefix: string;

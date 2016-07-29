@@ -8,7 +8,7 @@ export interface IDocumentListGroup {
 }
 export declare class DocumentListGroup implements IDocumentListGroup {
     static collection: string;
-    static URL: (id: string) => string;
+    static URL: (id?: string) => string;
     _id: string;
     title: string;
     items: DocumentListItem[];
