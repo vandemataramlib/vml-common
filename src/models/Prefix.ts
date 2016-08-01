@@ -1,7 +1,5 @@
-import { API_SERVER_BASE_URL } from "../constants";
-
 export class Prefix {
-    static URL = (id?: string) => API_SERVER_BASE_URL + "/prefixes" + (id ? `/${id}` : "");
+    static URL = (id?: string) => "/prefixes" + (id ? `/${id}` : "");
     static collection = "prefixes";
     _id: string;
     prefix: string;

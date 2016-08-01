@@ -1,5 +1,3 @@
-import { API_SERVER_BASE_URL } from "../constants";
-
 export interface Book extends LogicalEntity {
 
     contents: Chapter[] | Part[];
@@ -76,7 +74,7 @@ export class Stanza implements LogicalEntity {
 
     static URL = (slug: string, subdocId: string, recordId: string, stanzaId: string) => {
 
-        let url = `${API_SERVER_BASE_URL}/docs/${slug}`;
+        let url = `/docs/${slug}`;
 
         if (subdocId) {
             url += `/subdocs/${subdocId}`;
@@ -188,7 +186,7 @@ export class Document implements Document {
 
     static URL = (slug: string, subdocId?: string, recordId?: string) => {
 
-        let url = `${API_SERVER_BASE_URL}/docs/${slug}`;
+        let url = `/docs/${slug}`;
 
         if (subdocId) {
             url += `/subdocs/${subdocId}`;

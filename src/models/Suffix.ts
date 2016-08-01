@@ -1,5 +1,3 @@
-import { API_SERVER_BASE_URL } from "../constants";
-
 export enum SuffixType {
     Primary,
     Secondary
@@ -67,5 +65,5 @@ export class Suffix implements ISuffix {
     _id: string;
     suffix: string;
     static collection = "suffixes";
-    static URL = (id?: string) => API_SERVER_BASE_URL + "/suffixes" + (id ? `/${id}` : "");
+    static URL = (id?: string) => "/suffixes" + (id ? `/${id}` : "");
 }

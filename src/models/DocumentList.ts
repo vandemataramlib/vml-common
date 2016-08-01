@@ -1,4 +1,3 @@
-import { API_SERVER_BASE_URL } from "../constants";
 import { DocType } from "./Document";
 
 export interface IDocumentListGroup {
@@ -11,7 +10,7 @@ export interface IDocumentListGroup {
 
 export class DocumentListGroup implements IDocumentListGroup {
     static collection = "documentLists";
-    static URL = (id?: string) => API_SERVER_BASE_URL + "/docList" + (id ? `/${id}` : "");
+    static URL = (id?: string) => "/docList" + (id ? `/${id}` : "");
     _id: string;
     title: string;
     items: DocumentListItem[];
