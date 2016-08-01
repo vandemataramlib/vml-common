@@ -46,7 +46,23 @@ export interface Segment extends LogicalEntity {
     stanzas: Stanza[];
 }
 
+export class StanzaURL extends DocumentURL {
+    stanzaId: string;
+    constructor(slug: string, subdocId: string, recordId: string, stanzaId: string) {
+
+        super(slug, subdocId, recordId);
+        this.stanzaId = stanzaId;
+    }
+}
+
 export class Stanza implements LogicalEntity {
+    id: number;
+    segmentId: number;
+    runningId: string;
+    lines: Line[];
+    stanza: string;
+    analysis: Token[];
+
     static URL = (slug: string, subdocId: string, recordId: string, stanzaId: string) => {
 
         let url = `${API_SERVER_BASE_URL}/docs/${slug}`;
@@ -59,17 +75,25 @@ export class Stanza implements LogicalEntity {
             url += `/records/${recordId}`;
         }
 
-        url += `/stanza/${stanzaId}`;
+        url += `/stanzas/${stanzaId}`;
 
         return url;
     };
 
-    id: number;
-    segmentId: number;
-    runningId: string;
-    lines: Line[];
-    stanza: string;
-    analysis: Token[];
+    static URLToParams = (stanzaURL: string): StanzaURL => {
+
+        if (!stanzaURL || !stanzaURL.length) {
+
+            return;
+        }
+
+        const stanzaURLRegex = /\/docs\/([\w-~\.\^]+)(?:\/subdocId\/(\w+)(?:\/recordId\/(\w+))?)?(?:\/stanzas\/(\d))/;
+
+        const params = stanzaURL.split(stanzaURLRegex);
+
+        return new StanzaURL(params[1], params[2], params[3], params[4]);
+    }
+
     constructor(data: Stanza, id?: number) {
         this.lines = data.lines;
         this.analysis = data.analysis;
@@ -142,6 +166,17 @@ export interface IDocument extends DbEntity {
     contents: Chapter | Volume | Collection;
 }
 
+export class DocumentURL {
+    slug: string;
+    subdocId: string;
+    recordId: string;
+    constructor(slug: string, subdocId?: string, recordId?: string) {
+        this.slug = slug;
+        this.subdocId = subdocId;
+        this.recordId = recordId;
+    }
+}
+
 export class Document implements Document {
     _id: string;
     docType: DocType;
@@ -165,6 +200,20 @@ export class Document implements Document {
 
         return url;
     };
+
+    static URLToParams = (documentUrl: string): DocumentURL => {
+
+        if (!documentUrl || !documentUrl.length) {
+
+            return;
+        }
+
+        const documentUrlRegex = /\/docs\/([\w-~\.\^]+)(?:\/subdocId\/(\w+)(?:\/recordId\/(\w+))?)?/;
+
+        const params = documentUrl.split(documentUrlRegex);
+
+        return new DocumentURL(params[1], params[2], params[3]);
+    }
 
     constructor(docType: DocType, title: string, data: any, id?: string) {
 
