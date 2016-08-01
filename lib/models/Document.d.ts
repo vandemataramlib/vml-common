@@ -31,14 +31,19 @@ export declare class Chapter implements IChapter {
 export interface Segment extends LogicalEntity {
     stanzas: Stanza[];
 }
+export declare class StanzaURL extends DocumentURL {
+    stanzaId: string;
+    constructor(slug: string, subdocId: string, recordId: string, stanzaId: string);
+}
 export declare class Stanza implements LogicalEntity {
-    static URL: (slug: string, subdocId: string, recordId: string, stanzaId: string) => string;
     id: number;
     segmentId: number;
     runningId: string;
     lines: Line[];
     stanza: string;
     analysis: Token[];
+    static URL: (slug: string, subdocId: string, recordId: string, stanzaId: string) => string;
+    static URLToParams: (stanzaURL: string) => StanzaURL;
     constructor(data: Stanza, id?: number);
 }
 export interface Line {
@@ -88,6 +93,12 @@ export interface IDocument extends DbEntity {
     docType: DocType;
     contents: Chapter | Volume | Collection;
 }
+export declare class DocumentURL {
+    slug: string;
+    subdocId: string;
+    recordId: string;
+    constructor(slug: string, subdocId?: string, recordId?: string);
+}
 export declare class Document implements Document {
     _id: string;
     docType: DocType;
@@ -96,5 +107,6 @@ export declare class Document implements Document {
     contents: Chapter | Volume | Collection;
     static collection: string;
     static URL: (slug: string, subdocId?: string, recordId?: string) => string;
+    static URLToParams: (documentUrl: string) => DocumentURL;
     constructor(docType: DocType, title: string, data: any, id?: string);
 }
