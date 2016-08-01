@@ -31,6 +31,12 @@ export declare class Chapter implements IChapter {
 export interface Segment extends LogicalEntity {
     stanzas: Stanza[];
 }
+export declare class DocumentURL {
+    slug: string;
+    subdocId: string;
+    recordId: string;
+    constructor(slug: string, subdocId?: string, recordId?: string);
+}
 export declare class StanzaURL extends DocumentURL {
     stanzaId: string;
     constructor(slug: string, subdocId: string, recordId: string, stanzaId: string);
@@ -92,12 +98,6 @@ export interface IDocument extends DbEntity {
     url: string;
     docType: DocType;
     contents: Chapter | Volume | Collection;
-}
-export declare class DocumentURL {
-    slug: string;
-    subdocId: string;
-    recordId: string;
-    constructor(slug: string, subdocId?: string, recordId?: string);
 }
 export declare class Document implements Document {
     _id: string;

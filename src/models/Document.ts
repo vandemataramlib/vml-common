@@ -46,6 +46,17 @@ export interface Segment extends LogicalEntity {
     stanzas: Stanza[];
 }
 
+export class DocumentURL {
+    slug: string;
+    subdocId: string;
+    recordId: string;
+    constructor(slug: string, subdocId?: string, recordId?: string) {
+        this.slug = slug;
+        this.subdocId = subdocId;
+        this.recordId = recordId;
+    }
+}
+
 export class StanzaURL extends DocumentURL {
     stanzaId: string;
     constructor(slug: string, subdocId: string, recordId: string, stanzaId: string) {
@@ -164,17 +175,6 @@ export interface IDocument extends DbEntity {
     url: string;
     docType: DocType;
     contents: Chapter | Volume | Collection;
-}
-
-export class DocumentURL {
-    slug: string;
-    subdocId: string;
-    recordId: string;
-    constructor(slug: string, subdocId?: string, recordId?: string) {
-        this.slug = slug;
-        this.subdocId = subdocId;
-        this.recordId = recordId;
-    }
 }
 
 export class Document implements Document {
