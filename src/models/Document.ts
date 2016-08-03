@@ -109,9 +109,10 @@ export class Stanza implements LogicalEntity {
     constructor(data: Stanza, id?: number) {
         this.lines = data.lines;
         this.analysis = data.analysis;
-        if (id) {
-            this.id = id;
-        }
+        this.runningId = data.runningId;
+        this.segmentId = data.segmentId;
+        this.stanza = data.stanza;
+        this.id = id;
     }
 }
 
