@@ -51,21 +51,27 @@ export declare class Stanza implements LogicalEntity {
     static URLFromDocURL: (documentURL: string, runningStanzaId: string) => string;
     static URL: (slug: string, subdocId: string, recordId: string, runningStanzaId: string) => string;
     static URLToParams: (stanzaURL: string) => StanzaURL;
-    constructor(data: Stanza, id?: number);
+    constructor(data: Stanza);
 }
-export interface Line {
+export declare class Line {
     id: string;
-    line?: string;
-    words?: Word[];
+    line: string;
+    words: Word[];
+    stanzaId: number;
+    constructor(line: Line);
 }
-export interface Word {
+export declare class Word {
     id: string;
     word: string;
-    analysis?: Token[];
+    analysis: Token[];
+    lineId: string;
+    constructor(word: Word);
 }
-export interface Token {
+export declare class Token {
     id: string;
     token: string;
+    wordId: string;
+    constructor(token: Token);
 }
 export interface IVolume {
 }

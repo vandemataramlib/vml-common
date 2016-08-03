@@ -106,31 +106,57 @@ export class Stanza implements LogicalEntity {
         return new StanzaURL(params[1], params[2], params[3], params[4]);
     }
 
-    constructor(data: Stanza, id?: number) {
+    constructor(data: Stanza) {
         this.lines = data.lines;
         this.analysis = data.analysis;
         this.runningId = data.runningId;
         this.segmentId = data.segmentId;
         this.stanza = data.stanza;
-        this.id = id;
+        this.id = data.id;
     }
 }
 
-export interface Line {
+export class Line {
     id: string;
-    line?: string;
-    words?: Word[];
+    line: string;
+    words: Word[];
+    stanzaId: number;
+
+    constructor(line: Line) {
+
+        this.id = line.id;
+        this.line = line.line;
+        this.words = line.words;
+        this.stanzaId = line.stanzaId;
+    }
 }
 
-export interface Word {
+export class Word {
     id: string;
     word: string;
-    analysis?: Token[];
+    analysis: Token[];
+    lineId: string;
+
+    constructor(word: Word) {
+
+        this.id = word.id;
+        this.word = word.word;
+        this.analysis = word.analysis;
+        this.lineId = word.lineId;
+    }
 }
 
-export interface Token {
+export class Token {
     id: string;
     token: string;
+    wordId: string;
+
+    constructor(token: Token) {
+
+        this.id = token.id;
+        this.token = token.token;
+        this.wordId = token.wordId;
+    }
 }
 
 // enum DocumentDataTypes {
