@@ -21,9 +21,11 @@
     "typescript": "^1.8.10"
   },
   "scripts": {
+    "lint": "tslint -c ./tslint.json  './src/**/*.ts'",
     "compile": "tsc"
   },
   "pre-commit": [
+    "lint",
     "compile"
   ]
 }

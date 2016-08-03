@@ -72,7 +72,7 @@ export class Stanza implements LogicalEntity {
     stanza: string;
     analysis: Token[];
 
-    static URL = (slug: string, subdocId: string, recordId: string, stanzaId: string) => {
+    static URL = (slug: string, subdocId: string, recordId: string, runningStanzaId: string) => {
 
         let url = `/docs/${slug}`;
 
@@ -84,7 +84,7 @@ export class Stanza implements LogicalEntity {
             url += `/records/${recordId}`;
         }
 
-        url += `/stanzas/${stanzaId}`;
+        url += `/stanzas/${runningStanzaId}`;
 
         return url;
     };
@@ -101,6 +101,11 @@ export class Stanza implements LogicalEntity {
         const params = stanzaURL.split(stanzaURLRegex);
 
         return new StanzaURL(params[1], params[2], params[3], params[4]);
+    }
+
+    static URLFromDocURL = (documentURL: string, runningStanzaId: string) => {
+
+        return `${documentURL}/stanzas/${runningStanzaId}`;
     }
 
     constructor(data: Stanza, id?: number) {
