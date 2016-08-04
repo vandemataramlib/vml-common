@@ -27,5 +27,8 @@
   "pre-commit": [
     "lint",
     "compile"
-  ]
+  ],
+  "dependencies": {
+    "jsonapi-serializer": "^3.3.0"
+  }
 }
