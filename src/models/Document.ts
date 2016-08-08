@@ -136,13 +136,11 @@ export class Word {
     word: string;
     analysis: Token[];
     lineId: string;
+    definition: string | string[];
 
     constructor(word: Word) {
 
-        this.id = word.id;
-        this.word = word.word;
-        this.analysis = word.analysis;
-        this.lineId = word.lineId;
+        Object.assign(this, word);
     }
 }
 
@@ -150,12 +148,28 @@ export class Token {
     id: string;
     token: string;
     wordId: string;
+    ety: Etymology[];
 
     constructor(token: Token) {
 
-        this.id = token.id;
-        this.token = token.token;
-        this.wordId = token.wordId;
+        Object.assign(this, token);
+    }
+}
+
+export enum EtymologyType {
+    Root,
+    Prefix,
+    Suffix
+}
+
+export class Etymology {
+    type: EtymologyType;
+    typeId: string;
+    senses: string[];
+
+    constructor(ety: Etymology) {
+
+        Object.assign(this, ety);
     }
 }
 
