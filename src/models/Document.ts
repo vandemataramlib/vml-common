@@ -149,6 +149,7 @@ export class Token {
     token: string;
     wordId: string;
     ety: Etymology[];
+    definition: string | string[];
 
     constructor(token: Token) {
 

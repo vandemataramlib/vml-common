@@ -73,6 +73,7 @@ export declare class Token {
     token: string;
     wordId: string;
     ety: Etymology[];
+    definition: string | string[];
     constructor(token: Token);
 }
 export declare enum EtymologyType {
