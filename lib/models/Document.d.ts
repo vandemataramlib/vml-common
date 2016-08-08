@@ -65,13 +65,26 @@ export declare class Word {
     word: string;
     analysis: Token[];
     lineId: string;
+    definition: string | string[];
     constructor(word: Word);
 }
 export declare class Token {
     id: string;
     token: string;
     wordId: string;
+    ety: Etymology[];
     constructor(token: Token);
+}
+export declare enum EtymologyType {
+    Root = 0,
+    Prefix = 1,
+    Suffix = 2,
+}
+export declare class Etymology {
+    type: EtymologyType;
+    typeId: string;
+    senses: string[];
+    constructor(ety: Etymology);
 }
 export interface IVolume {
 }
