@@ -39,7 +39,7 @@ export declare enum Number {
 export interface ISuffix {
     _id?: string;
     suffix: string;
-    senses?: string[];
+    senses: string[];
     type?: SuffixType;
     pos?: POS | POS[];
     tense?: Tense;
@@ -54,5 +54,6 @@ export declare class Suffix implements ISuffix {
     _id: string;
     suffix: string;
     static collection: string;
+    senses: string[];
     static URL: (id?: string) => string;
 }
