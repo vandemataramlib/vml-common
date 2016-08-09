@@ -164,6 +164,7 @@ export enum EtymologyType {
 }
 
 export class Etymology {
+    id: string;
     type: EtymologyType;
     typeId: string;
     senses: string[];

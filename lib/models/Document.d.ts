@@ -82,6 +82,7 @@ export declare enum EtymologyType {
     Suffix = 2,
 }
 export declare class Etymology {
+    id: string;
     type: EtymologyType;
     typeId: string;
     senses: string[];
