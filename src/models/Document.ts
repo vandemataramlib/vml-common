@@ -168,6 +168,7 @@ export class Etymology {
     tokenId: string;
     type: EtymologyType;
     typeId: string;
+    value: string;
     senses: string[];
 
     constructor(ety: Etymology) {
