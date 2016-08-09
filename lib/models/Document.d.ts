@@ -83,6 +83,7 @@ export declare enum EtymologyType {
 }
 export declare class Etymology {
     id: string;
+    tokenId: string;
     type: EtymologyType;
     typeId: string;
     senses: string[];
