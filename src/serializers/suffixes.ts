@@ -7,7 +7,7 @@ export const getSuffixSerializer = (type: string, topLevelLinks?: any, dataLinks
         dataLinks,
         id: "_id",
         keyForAttribute: "camelCase",
-        attributes: ["suffix"]
+        attributes: ["suffix", "senses"]
     };
 
     return new Serializer(type, serializer);
