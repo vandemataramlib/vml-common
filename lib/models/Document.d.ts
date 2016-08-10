@@ -48,6 +48,7 @@ export declare class Stanza implements LogicalEntity {
     lines: Line[];
     stanza: string;
     analysis: Token[];
+    translation: string;
     static URLFromDocURL: (documentURL: string, runningStanzaId: string) => string;
     static URL: (slug: string, subdocId: string, recordId: string, runningStanzaId: string) => string;
     static URLToParams: (stanzaURL: string) => StanzaURL;

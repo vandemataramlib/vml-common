@@ -71,6 +71,7 @@ export class Stanza implements LogicalEntity {
     lines: Line[];
     stanza: string;
     analysis: Token[];
+    translation: string;
 
     static URLFromDocURL = (documentURL: string, runningStanzaId: string) => {
 
@@ -113,6 +114,7 @@ export class Stanza implements LogicalEntity {
         this.segmentId = data.segmentId;
         this.stanza = data.stanza;
         this.id = data.id;
+        this.translation = data.translation;
     }
 }
 
