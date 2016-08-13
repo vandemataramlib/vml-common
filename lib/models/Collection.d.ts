@@ -1,8 +1,10 @@
 import { Segment, Stanza } from "./Document";
 export declare class CollectionStanza extends Stanza {
 }
-export interface CollectionSegment extends Segment {
+export declare class CollectionSegment implements Segment {
     stanzas: CollectionStanza[];
+    id: number;
+    constructor(data: CollectionSegment);
 }
 export declare class Collection {
     static URL: (id?: string) => string;
@@ -11,4 +13,5 @@ export declare class Collection {
     title: string;
     subtitle: string;
     segments: CollectionSegment[];
+    constructor(data: any);
 }

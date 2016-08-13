@@ -2,8 +2,13 @@ import { Segment, Stanza } from "./Document";
 
 export class CollectionStanza extends Stanza { }
 
-export interface CollectionSegment extends Segment {
+export class CollectionSegment implements Segment {
     stanzas: CollectionStanza[];
+    id: number;
+
+    constructor(data: CollectionSegment) {
+        Object.assign(this, data);
+    }
 }
 
 export class Collection {
@@ -14,4 +19,9 @@ export class Collection {
     title: string;
     subtitle: string;
     segments: CollectionSegment[];
+
+    constructor(data: any) {
+
+        Object.assign(this, data);
+    }
 }
