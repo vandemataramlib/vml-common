@@ -1,6 +1,15 @@
 import { Segment, Stanza } from "./Document";
 
-export class CollectionStanza extends Stanza { }
+export class CollectionStanza extends Stanza {
+    originalURL: string;
+    referenceTitle: string;
+
+    constructor(data: CollectionStanza) {
+
+        super(data);
+        Object.assign(this, data);
+    }
+}
 
 export class CollectionSegment implements Segment {
     stanzas: CollectionStanza[];

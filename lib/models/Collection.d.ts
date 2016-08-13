@@ -1,5 +1,8 @@
 import { Segment, Stanza } from "./Document";
 export declare class CollectionStanza extends Stanza {
+    originalURL: string;
+    referenceTitle: string;
+    constructor(data: CollectionStanza);
 }
 export declare class CollectionSegment implements Segment {
     stanzas: CollectionStanza[];
