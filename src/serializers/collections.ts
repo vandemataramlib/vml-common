@@ -12,3 +12,14 @@ export const getCollectionSerializer = (type: string, topLevelLinks?: any, dataL
 
     return new Serializer(type, serializer);
 };
+
+export const getCollectionStanzaSerializer = (type: string, topLevelLinks?: any, dataLinks?: any) => {
+
+    const serializer = {
+        topLevelLinks,
+        keyForAttribute: "camelCase",
+        attributes: ["runningId", "segmentId", "lines", "originalURL", "referenceTitle"]
+    };
+
+    return new Serializer(type, serializer);
+};
