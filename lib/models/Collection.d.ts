@@ -15,6 +15,7 @@ export declare class Collection {
     _id: string;
     title: string;
     subtitle: string;
+    description: string;
     segments: CollectionSegment[];
     constructor(data: any);
 }
