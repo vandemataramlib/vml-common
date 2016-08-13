@@ -96,9 +96,9 @@ export interface IVolume {
 export declare class Volume implements IVolume {
     constructor(data: any);
 }
-export interface ICollection {
+export interface ICompilation {
 }
-export declare class Collection implements ICollection {
+export declare class Compilation implements ICompilation {
     constructor(data: any);
 }
 export interface MetaStructure {
@@ -122,14 +122,14 @@ export declare enum DocType {
 export interface IDocument extends DbEntity {
     url: string;
     docType: DocType;
-    contents: Chapter | Volume | Collection;
+    contents: Chapter | Volume | Compilation;
 }
 export declare class Document implements Document {
     _id: string;
     docType: DocType;
     url: string;
     title: string;
-    contents: Chapter | Volume | Collection;
+    contents: Chapter | Volume | Compilation;
     static collection: string;
     static URL: (slug: string, subdocId?: string, recordId?: string) => string;
     static URLToParams: (documentUrl: string) => DocumentURL;

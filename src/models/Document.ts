@@ -191,9 +191,9 @@ export class Volume implements IVolume {
     constructor(data: any) { }
 }
 
-export interface ICollection { }
+export interface ICompilation { }
 
-export class Collection implements ICollection {
+export class Compilation implements ICompilation {
     constructor(data: any) { }
 }
 
@@ -222,7 +222,7 @@ export enum DocType {
 export interface IDocument extends DbEntity {
     url: string;
     docType: DocType;
-    contents: Chapter | Volume | Collection;
+    contents: Chapter | Volume | Compilation;
 }
 
 export class Document implements Document {
@@ -230,7 +230,7 @@ export class Document implements Document {
     docType: DocType;
     url: string;
     title: string;
-    contents: Chapter | Volume | Collection;
+    contents: Chapter | Volume | Compilation;
 
     static collection = "documents";
 
@@ -279,7 +279,7 @@ export class Document implements Document {
             this.contents = new Volume(data);
         }
         else if (docType === DocType.Collection) {
-            this.contents = new Collection(data);
+            this.contents = new Compilation(data);
         }
     }
 }

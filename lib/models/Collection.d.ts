@@ -8,5 +8,7 @@ export declare class Collection {
     static URL: (id?: string) => string;
     static collection: string;
     _id: string;
+    title: string;
+    subtitle: string;
     segments: CollectionSegment[];
 }

@@ -28,4 +28,4 @@ export const getChapterSerializer = (type: string, selfURL?: string) => {
 
 export const getVolumeSerializer = (type: string, selfURL: string) => { };
 
-export const getCollectionSerializer = (type: string, selfURL: string) => { };
+export const getCompilationSerializer = (type: string, selfURL: string) => { };

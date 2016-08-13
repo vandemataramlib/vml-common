@@ -11,5 +11,7 @@ export class Collection {
     static collection = "collections";
 
     _id: string;
+    title: string;
+    subtitle: string;
     segments: CollectionSegment[];
 }
