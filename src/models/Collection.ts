@@ -1,7 +1,7 @@
 import { Segment, Stanza } from "./Document";
 
 export class CollectionStanza extends Stanza {
-    originalURL: string;
+    originalUrl: string;
     referenceTitle: string;
 
     constructor(data: CollectionStanza) {

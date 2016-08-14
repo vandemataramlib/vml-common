@@ -18,7 +18,7 @@ export const getCollectionStanzaSerializer = (type: string, topLevelLinks?: any,
     const serializer = {
         topLevelLinks,
         keyForAttribute: "camelCase",
-        attributes: ["runningId", "segmentId", "lines", "originalURL", "referenceTitle"]
+        attributes: ["runningId", "segmentId", "lines", "originalUrl", "referenceTitle"]
     };
 
     return new Serializer(type, serializer);
