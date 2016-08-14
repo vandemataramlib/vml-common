@@ -7,7 +7,7 @@ export const getCollectionSerializer = (type: string, topLevelLinks?: any, dataL
         dataLinks,
         id: "_id",
         keyForAttribute: "camelCase",
-        attributes: ["title", "subtitle", "segments"]
+        attributes: ["title", "subtitle", "segments", "description"]
     };
 
     return new Serializer(type, serializer);
