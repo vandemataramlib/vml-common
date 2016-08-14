@@ -100,7 +100,7 @@ export class Stanza implements LogicalEntity {
             return;
         }
 
-        const stanzaURLRegex = /\/docs\/([\w-~\.\^]+)(?:\/subdocs\/(\w+)(?:\/records\/(\w+))?)?(?:\/stanzas\/(\d))/;
+        const stanzaURLRegex = /\/docs\/([\w-~\.\^]+)(?:\/subdocs\/(\w+)(?:\/records\/(\w+))?)?(?:\/stanzas\/(\d+))/;
 
         const params = stanzaURL.split(stanzaURLRegex);
 
