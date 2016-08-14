@@ -38,7 +38,7 @@ export declare class DocumentURL {
     constructor(slug: string, subdocId?: string, recordId?: string);
 }
 export declare class StanzaURL extends DocumentURL {
-    stanzaId: string;
+    runningStanzaId: string;
     constructor(slug: string, subdocId: string, recordId: string, stanzaId: string);
 }
 export declare class Stanza implements LogicalEntity {
@@ -52,6 +52,7 @@ export declare class Stanza implements LogicalEntity {
     static URLFromDocURL: (documentURL: string, runningStanzaId: string) => string;
     static URL: (slug: string, subdocId: string, recordId: string, runningStanzaId: string) => string;
     static URLToParams: (stanzaURL: string) => StanzaURL;
+    static URLToWebURL: (stanzaURL: string) => string;
     constructor(data: Stanza);
 }
 export declare class Line {
@@ -133,5 +134,6 @@ export declare class Document implements Document {
     static collection: string;
     static URL: (slug: string, subdocId?: string, recordId?: string) => string;
     static URLToParams: (documentUrl: string) => DocumentURL;
+    static URLToWebURL: (documentURL: string) => string;
     constructor(docType: DocType, title: string, data: any, id?: string);
 }

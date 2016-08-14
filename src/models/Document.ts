@@ -56,11 +56,11 @@ export class DocumentURL {
 }
 
 export class StanzaURL extends DocumentURL {
-    stanzaId: string;
+    runningStanzaId: string;
     constructor(slug: string, subdocId: string, recordId: string, stanzaId: string) {
 
         super(slug, subdocId, recordId);
-        this.stanzaId = stanzaId;
+        this.runningStanzaId = stanzaId;
     }
 }
 
@@ -105,6 +105,16 @@ export class Stanza implements LogicalEntity {
         const params = stanzaURL.split(stanzaURLRegex);
 
         return new StanzaURL(params[1], params[2], params[3], params[4]);
+    }
+
+    static URLToWebURL = (stanzaURL: string): string => {
+
+        const params = Stanza.URLToParams(stanzaURL);
+
+        return "/" + params.slug
+            + (params.subdocId ? "/" + params.subdocId : "")
+            + (params.recordId ? "/" + params.recordId : "")
+            + `#p${params.runningStanzaId}`;
     }
 
     constructor(data: Stanza) {
@@ -261,6 +271,13 @@ export class Document implements Document {
         const params = documentUrl.split(documentUrlRegex);
 
         return new DocumentURL(params[1], params[2], params[3]);
+    }
+
+    static URLToWebURL = (documentURL: string): string => {
+
+        const params = Document.URLToParams(documentURL);
+
+        return "/" + params.slug + (params.subdocId ? "/" + params.subdocId : "") + (params.recordId ? "/" + params.recordId : "");
     }
 
     constructor(docType: DocType, title: string, data: any, id?: string) {
