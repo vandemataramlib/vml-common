@@ -100,7 +100,7 @@ export class Stanza implements LogicalEntity {
             return;
         }
 
-        const stanzaURLRegex = /\/docs\/([\w-~\.\^]+)(?:\/subdocs\/(\w+)(?:\/records\/(\w+))?)?(?:\/stanzas\/(\d+))/;
+        const stanzaURLRegex = /\/docs\/([\w-~\.\^]+)(?:\/subdocs\/([\w-~\.\^]+)(?:\/records\/([\w-~\.\^]+))?)?(?:\/stanzas\/(\d+))/;
 
         const params = stanzaURL.split(stanzaURLRegex);
 
@@ -260,7 +260,7 @@ export class Document implements IDocument {
             return;
         }
 
-        const documentUrlRegex = /\/docs\/([\w-~\.\^]+)(?:\/subdocs\/(\w+)(?:\/records\/(\w+))?)?/;
+        const documentUrlRegex = /\/docs\/([\w-~\.\^]+)(?:\/subdocs\/([\w-~\.\^]+)(?:\/records\/([\w-~\.\^]+))?)?/;
 
         const params = documentUrl.split(documentUrlRegex);
 
