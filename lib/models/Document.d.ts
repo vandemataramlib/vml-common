@@ -116,7 +116,7 @@ export interface DbEntity extends MetaStructure {
     _id: string;
 }
 export declare enum DocType {
-    Collection = 0,
+    Compilation = 0,
     Volume = 1,
     Chapter = 2,
 }

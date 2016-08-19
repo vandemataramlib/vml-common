@@ -189,12 +189,6 @@ export class Etymology {
     }
 }
 
-// enum DocumentDataTypes {
-//     chapter,
-//     chapters,
-//     books
-// }
-
 export interface IVolume { }
 
 export class Volume implements IVolume {
@@ -224,7 +218,7 @@ export interface DbEntity extends MetaStructure {
 }
 
 export enum DocType {
-    Collection,
+    Compilation,
     Volume,
     Chapter
 }
@@ -295,7 +289,7 @@ export class Document implements Document {
         else if (docType === DocType.Volume) {
             this.contents = new Volume(data);
         }
-        else if (docType === DocType.Collection) {
+        else if (docType === DocType.Compilation) {
             this.contents = new Compilation(data);
         }
     }
