@@ -229,7 +229,7 @@ export interface IDocument extends DbEntity {
     contents: Chapter | Volume | Compilation;
 }
 
-export class Document implements Document {
+export class Document implements IDocument {
     _id: string;
     docType: DocType;
     url: string;
@@ -274,23 +274,8 @@ export class Document implements Document {
         return "/" + params.slug + (params.subdocId ? "/" + params.subdocId : "") + (params.recordId ? "/" + params.recordId : "");
     }
 
-    constructor(docType: DocType, title: string, data: any, id?: string) {
+    constructor(document: IDocument) {
 
-        this.docType = docType;
-        this.title = title;
-
-        if (id) {
-            this._id = id;
-        }
-
-        if (docType === DocType.Chapter) {
-            this.contents = new Chapter(data);
-        }
-        else if (docType === DocType.Volume) {
-            this.contents = new Volume(data);
-        }
-        else if (docType === DocType.Compilation) {
-            this.contents = new Compilation(data);
-        }
+        Object.assign(this, document);
     }
 }

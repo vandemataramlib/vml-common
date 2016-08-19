@@ -125,7 +125,7 @@ export interface IDocument extends DbEntity {
     docType: DocType;
     contents: Chapter | Volume | Compilation;
 }
-export declare class Document implements Document {
+export declare class Document implements IDocument {
     _id: string;
     docType: DocType;
     url: string;
@@ -135,5 +135,5 @@ export declare class Document implements Document {
     static URL: (slug: string, subdocId?: string, recordId?: string) => string;
     static URLToParams: (documentUrl: string) => DocumentURL;
     static URLToWebURL: (documentURL: string) => string;
-    constructor(docType: DocType, title: string, data: any, id?: string);
+    constructor(document: IDocument);
 }
